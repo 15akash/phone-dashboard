@@ -1,18 +1,23 @@
 @import './styles/variables';
 
 .app {
+    width: 100vw;
+    height: 100vh;
 
     .menu-con {
         width: 15%;
         min-width: 220px;
         background-color: $paper-gray;
-        padding: 18px 11px;
         height: 100%;
         max-width: 250px;
         display: flex;
         flex-direction: column;
         margin: 0;
+        padding-left: 0;
+        width: 100%;
+        // height: 100%;
     }
+
 
     .main-content {
         flex: 1;

@@ -11,17 +11,7 @@ interface FlexboxProps {
 	onClick?: () => void;
 }
 
-const Flexbox = ({
-	direction = 'row',
-	gap = 0,
-	width = undefined,
-	justifyContent = 'flex-start',
-	alignItems = 'flex-start',
-	children,
-	onClick,
-	className,
-	...props
-}: FlexboxProps) => {
+const Flexbox = ({ direction = 'row', gap = 0, width = undefined, justifyContent, alignItems, children, onClick, className, ...props }: FlexboxProps) => {
 	return (
 		<div
 			className={className}

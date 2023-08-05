@@ -8,7 +8,7 @@ import Flexbox from './foundations/Flexbox/Flexbox';
 
 function App() {
 	return (
-		<Flexbox className={styles['app']}>
+		<div style={{ display: 'flex' }} className={styles['app']}>
 			<menu className={styles['menu-con']}>
 				<Menu />
 			</menu>
@@ -20,7 +20,7 @@ function App() {
 					<Route path="*" element={<NoPage />} />
 				</Routes>
 			</Flexbox>
-		</Flexbox>
+		</div>
 	);
 }
 

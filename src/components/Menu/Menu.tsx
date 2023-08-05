@@ -19,6 +19,7 @@ import {
 	MoreServicesIcon,
 	HelpIcon
 } from './MenuIconFile';
+import { Link } from 'react-router-dom';
 
 interface MenuItem {
 	id: string;
@@ -41,7 +42,7 @@ const Menu = () => {
 		{ id: 'help', displayName: 'Help', icon: HelpIcon }
 	];
 	return (
-		<Flexbox direction="column" className={styles['menu-section']}>
+		<>
 			<Flexbox alignItems="center" className={styles['logo-con']} gap={7}>
 				<img src={logo} alt="logo" />
 				<img src={logoName} alt="phone.com" />
@@ -59,15 +60,15 @@ const Menu = () => {
 					<img src={DownArrow} alt="down arrow" />
 				</Flexbox>
 			</Flexbox>
-			<Flexbox direction="column" width="100%">
+			<Flexbox direction="column">
 				{menuItems.map((item: MenuItem) => (
-					<Flexbox alignItems="center" key={item.id} className={styles['single-menu-item']} gap={22}>
+					<Link to={`/${item.id}`} className={styles['single-menu-item']}>
 						<img src={item.icon} alt={item.id} />
 						<Typography type="body-Monst_14-400">{item.displayName}</Typography>
-					</Flexbox>
+					</Link>
 				))}
 			</Flexbox>
-		</Flexbox>
+		</>
 	);
 };
 

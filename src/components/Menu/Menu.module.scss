@@ -1,39 +1,37 @@
 @import '../../styles/variables';
 
-// .menu-con {
-    // min-width: 200px;
-    // height: 100%;
-    // max-width: 224px !important;
-    .menu-section{
-        // padding: 18px 11px;
-        width: 100%;
+    // .menu-section{
 
-    .logo-con {
-        box-shadow: 0px 12px 24px -10px rgba(0, 0, 0, 0.06);
-        background-color: $paper-gray !important;
-        padding: 0 0 18px;
-        width: 100%;
-    }
-
-    .name-con {   
-        padding: 16px 0;
-
-        img{
-            padding: 5px;
-            border-radius: 50px;
-            background-color: $shades-blue-70;
+        .logo-con {
+            padding: 18px 11px;
+            box-shadow: 0px 12px 24px -10px rgba(0, 0, 0, 0.06);
         }
-    }
 
-    .my-inbox {
-        padding: 20px 10px;
-        width: 100%;
-    }
+        .name-con {   
+            padding: 22px 11px;
 
-    .single-menu-item {
-        padding: 10px 20px;
-        cursor: pointer;
-        width: 100%;
-        overflow: hidden;
-    }
-}
+            img{
+                padding: 5px;
+                border-radius: 50px;
+                background-color: $shades-blue-70;
+            }
+        }
+
+        .my-inbox {
+            padding: 20px;
+            width: 100%;
+        }
+
+        .single-menu-item {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+            padding: 10px 30px;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .single-menu-item:hover{
+            background: $action-primary-focus;
+        }
+// }

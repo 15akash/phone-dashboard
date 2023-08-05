@@ -11,7 +11,7 @@ const Header = () => {
 				<input type="text" placeholder="Search..." />
 				<img src={SearchIcon} alt="search-icon" />
 			</Flexbox>
-			<Flexbox gap={12}>
+			<Flexbox gap={12} width="120px">
 				<img className={styles['dialer-icon']} src={DialerIcon} alt="dialer-icon" />
 				<Flexbox className={styles['divider']}></Flexbox>
 				<img src={MoonIcon} alt="mode-icon" />
