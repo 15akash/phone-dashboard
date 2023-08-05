@@ -15,7 +15,8 @@ const varients = [
 	'body-Monst_12-600',
 	'body-NTR_16-400',
 	'body-Inter_14-400',
-	'body-Inter_16-400'
+	'body-Inter_16-400',
+	'body-Monst_10-600'
 ] as const;
 
 type El = (typeof allowedElements)[number];

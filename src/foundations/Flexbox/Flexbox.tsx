@@ -10,6 +10,7 @@ interface FlexboxProps {
 	height?: string | undefined;
 	className?: string;
 	margin?: string;
+	cursor?: string;
 	onClick?: () => void;
 }
 
@@ -23,6 +24,7 @@ const Flexbox = ({
 	alignItems,
 	children,
 	onClick,
+	cursor,
 	className,
 	...props
 }: FlexboxProps) => {
@@ -37,7 +39,8 @@ const Flexbox = ({
 				gap,
 				width,
 				height,
-				margin
+				margin,
+				cursor
 			}}
 			onClick={onClick}
 			{...props}>

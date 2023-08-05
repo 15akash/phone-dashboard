@@ -1,6 +1,14 @@
 .homepage {
-    height: 100%;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
+    padding: 45px;
+
+    .brand-campaign-con {
+
+    }
+
+    .card-con {
+        border-radius: 2.476px;
+        border: 0.2px solid rgba(54, 64, 71, 0.40);
+        background: var(--universal-snowflake, #FFF);
+        box-shadow: 6px 10px 17px 0px rgba(177, 177, 177, 0.08);
+    }
 }

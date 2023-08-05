@@ -1,0 +1,51 @@
+@import '../../../../styles/variables';
+
+    
+.brand-campaign-con {
+
+    .card-con {
+        padding: 24px;
+        border-radius: 2.476px;
+        border: 0.1px solid $paper-gray;
+        background: $universal-snowflake;
+        box-shadow: 6px 10px 17px 0px rgba(177, 177, 177, 0.08);
+
+        .verified-con {
+            background-color: $primary-background;
+            color: $primary-main;
+            padding: 5px 10px;
+            width: fit-content;
+            border-radius: 32px;
+        }
+
+        .divider {
+            height: 1px;
+            background-color: $secondary-background;
+            margin-bottom: 10px;
+        }
+
+        .status-info-con {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            align-items: center;
+            width: 95%;
+
+            .active-status {
+                color: $primary-main;
+                border-bottom: 1px solid $primary-main;
+            }
+        }
+    }
+
+    .active-tab{
+        color: $shades-green-60;
+        padding-bottom: 16px;
+        border-bottom: 3px solid $shades-green-60;
+    }
+    
+    .tab{
+        color: $shades-gray-60;
+        padding-bottom: 16px;
+        cursor: pointer;
+    }
+}

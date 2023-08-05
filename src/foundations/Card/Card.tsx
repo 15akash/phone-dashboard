@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
 import styles from './Card.module.scss';
+import Flexbox from '../Flexbox/Flexbox';
 
 interface ICardProps {
 	children: ReactNode;
@@ -7,9 +8,9 @@ interface ICardProps {
 
 const Card = (props: ICardProps) => {
 	return (
-		<div className={styles.box}>
+		<Flexbox className={styles.box}>
 			<div className={styles.rectangle}>{props.children}</div>
-		</div>
+		</Flexbox>
 	);
 };
 
