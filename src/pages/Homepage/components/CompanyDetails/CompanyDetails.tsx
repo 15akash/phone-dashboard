@@ -16,12 +16,20 @@ interface IDetailsList {
 const CompanyDetails = () => {
 	const detailsList = useMemo(() => [], []);
 	return (
-		<div className={styles['company-card-con']}>
+		<Flexbox gap={20} direction="column" className={styles['company-card-con']}>
 			<div className={styles['company-details-con']}>
 				<DetailsHeader heading="Company Details" />
 				<div className={styles['details-columns']}></div>
 			</div>
-		</div>
+			<div>
+				<DetailsHeader heading="Contact Details" />
+				<div className={styles['details-columns']}></div>
+			</div>
+			<div>
+				<DetailsHeader heading="Registered Campaigns" />
+				<div className={styles['details-columns']}></div>
+			</div>
+		</Flexbox>
 	);
 };
 

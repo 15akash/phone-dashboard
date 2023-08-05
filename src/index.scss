@@ -18,8 +18,8 @@ body {
 
 /* width */
 ::-webkit-scrollbar {
-    width: 2px;
-    height: 2px;
+    width: 4px;
+    height: 4px;
     border-radius: 20px;
   }
   
@@ -30,7 +30,7 @@ body {
   
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    background: $shades-gray-40;
+    background: $shades-gray-60;
   }
   
   /* Handle on hover */
