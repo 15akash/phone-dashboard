@@ -1,0 +1,145 @@
+@import '../../styles/variables';
+
+.type {
+
+    &--h1 {
+        font-feature-settings: 'clig' off, 'liga' off;
+        font-family: Montserrat;
+        font-size: 36px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 38px; /* 105.556% */
+        letter-spacing: -0.5px;
+    }
+
+    &--h5 {
+        font-feature-settings: 'clig' off, 'liga' off;
+        font-family: Montserrat;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 28px; /* 140% */
+        letter-spacing: -0.3px;
+    }
+
+    &--body {
+        &-1 {
+            font-feature-settings: 'clig' off, 'liga' off;
+            font-family: Montserrat;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 22px;
+        }
+        &-1-heavy {
+            font-feature-settings: 'clig' off, 'liga' off;
+            font-family: Montserrat;
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 22px;
+        }
+
+        &-2 {
+            font-feature-settings: 'clig' off, 'liga' off;
+            font-family: Montserrat;
+            font-size: 12px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 19px;
+        }
+    }
+
+    &--body-Monst {
+
+        &_16 {
+
+            &-500 {
+                font-feature-settings: 'clig' off, 'liga' off;
+                font-family: Montserrat;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: 26px; /* 162.5% */
+                letter-spacing: -0.1px;
+            }
+        }
+
+        &_14 {
+
+            &-400 {
+                font-family: Montserrat;
+                font-size: 14px;
+                font-weight: 400;
+                line-height: 22px;
+                letter-spacing: 0em;
+            }
+
+            &-500 {
+                font-family: Montserrat;
+                font-size: 14px;
+                font-weight: 500;
+                line-height: 16px;
+                letter-spacing: 0em;
+            }
+        }
+
+        &_13 {
+            &-400 {
+                font-family: Montserrat;
+                font-size: 13px;
+                font-weight: 400;
+                line-height: 18px;
+                letter-spacing: 0em;
+            }  
+        }
+
+        &_12 {
+            &-600 {
+                font-feature-settings: 'clig' off, 'liga' off;
+                font-family: Montserrat;
+                font-size: 12px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: 19px;
+            }
+        }
+    }
+
+    &--body-NTR {
+
+        &_16 {
+
+            &-400 {
+                font-family: NTR;
+                font-size: 16px;
+                font-weight: 400;
+                line-height: 14px;
+                letter-spacing: 0em;
+            }
+        }
+    }
+
+    &--body-Inter {
+        
+        &_14 {
+            &--400 {
+                font-family: Inter;
+                font-size: 14px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 20px;
+            }
+        }
+
+        &_16 {
+            &--400 {
+                font-family: Inter Tight;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 24px; /* 150% */
+            }
+        }
+    }
+}
