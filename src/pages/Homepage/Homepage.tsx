@@ -2,6 +2,7 @@ import styles from './Homepage.module.scss';
 import Flexbox from '../../foundations/Flexbox/Flexbox';
 import Typography from '../../foundations/Typography/Typography';
 import TabsColumn from './components/TabsColumn/TabsColumn';
+import CompanyDetails from './components/CompanyDetails/CompanyDetails';
 
 const Homepage = () => {
 	return (
@@ -15,7 +16,7 @@ const Homepage = () => {
 				</Typography>
 			</Flexbox>
 			<TabsColumn />
-			<Flexbox className={styles['card-con']}>hello there</Flexbox>
+			<CompanyDetails />
 		</Flexbox>
 	);
 };

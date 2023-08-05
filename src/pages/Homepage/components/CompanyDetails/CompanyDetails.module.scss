@@ -1,0 +1,14 @@
+@import '../../../../styles/variables';
+
+.company-card-con {
+        padding: 22px;
+        border-radius: 2.476px;
+        border: 0.1px solid $paper-gray;
+        background: $universal-snowflake;
+        box-shadow: 6px 10px 17px 0px rgba(177, 177, 177, 0.08);
+
+        .company-details-con {
+            border: 1px solid $shades-gray-01;
+            width: 100%;
+        }
+}
