@@ -6,39 +6,60 @@ header {
     box-shadow: 0px 12px 24px -10px rgba(0, 0, 0, 0.06);
     padding: 16px 56px 16px 22px;
     justify-content: space-between;
-        .input-con {
-            border-radius: 6px;
-            border: 1px solid $shades-gray-40;
-            padding: 10px;
+    align-items: center;
 
-            input {
-                border: none;
-                outline: none;
-                width: 250px;
-            }
+    .input-con {
+        border-radius: 6px;
+        border: 1px solid $shades-gray-40;
+        padding: 10px;
+        max-width: 300px;
+        // width: 100%;
 
-            ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-                color: $shades-gray-60;
-                opacity: 1; /* Firefox */
-              }
-              
-            :-ms-input-placeholder { /* Internet Explorer 10-11 */
-                color: $shades-gray-60;
-            }
-            
-            ::-ms-input-placeholder { /* Microsoft Edge */
-                color: $shades-gray-60;
-            }
+        input {
+            width: 100%;
+            border: none;
+            outline: none;
+            max-width: 250px;
         }
+        ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+            color: $shades-gray-60;
+            opacity: 1; /* Firefox */
+          }
+          
+        :-ms-input-placeholder { /* Internet Explorer 10-11 */
+            color: $shades-gray-60;
+        }
+        
+        ::-ms-input-placeholder { /* Microsoft Edge */
+            color: $shades-gray-60;
+        }
+    }
 
+    .icons-con {
+        height: 34px;
+        
         .divider {
             border: 1px solid $shades-gray-20;
             height: 34px;
         }
-
+        
         .dialer-icon {
             background: $primary-main;
             border-radius: 100px; 
             padding: 7px;
         }
+    }
+}
+
+@media screen and (max-width: 800px) {
+
+    header {
+        padding: 16px;
+
+        input{
+            width: auto !important;
+        }
+        
+    }
+
 }

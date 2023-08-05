@@ -7,11 +7,25 @@ interface FlexboxProps {
 	children?: ReactNode;
 	gap?: number;
 	width?: string | undefined;
+	height?: string | undefined;
 	className?: string;
+	margin?: string;
 	onClick?: () => void;
 }
 
-const Flexbox = ({ direction = 'row', gap = 0, width = undefined, justifyContent, alignItems, children, onClick, className, ...props }: FlexboxProps) => {
+const Flexbox = ({
+	direction = 'row',
+	gap = 0,
+	width = undefined,
+	margin,
+	height = undefined,
+	justifyContent,
+	alignItems,
+	children,
+	onClick,
+	className,
+	...props
+}: FlexboxProps) => {
 	return (
 		<div
 			className={className}
@@ -21,7 +35,9 @@ const Flexbox = ({ direction = 'row', gap = 0, width = undefined, justifyContent
 				justifyContent,
 				alignItems,
 				gap,
-				width
+				width,
+				height,
+				margin
 			}}
 			onClick={onClick}
 			{...props}>

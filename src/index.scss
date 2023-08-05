@@ -14,3 +14,25 @@ body {
         text-decoration: none;
     }
 }
+
+/* width */
+::-webkit-scrollbar {
+    width: 2px;
+    height: 2px;
+    border-radius: 20px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: $universal-snowflake;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: $shades-gray-40;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }

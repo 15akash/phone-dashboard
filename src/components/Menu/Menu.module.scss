@@ -1,11 +1,18 @@
 @import '../../styles/variables';
 
-    // .menu-section{
 
-        .logo-con {
-            padding: 18px 11px;
-            box-shadow: 0px 12px 24px -10px rgba(0, 0, 0, 0.06);
-        }
+    .logo-con {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        padding: 18px 11px;
+        box-shadow: 0px 12px 24px -10px rgba(0, 0, 0, 0.06);
+    }
+    
+    .menu-item-con {
+        background: $paper-gray;
+        overflow-y: scroll;
+        flex: 1;
 
         .name-con {   
             padding: 22px 11px;
@@ -16,22 +23,20 @@
                 background-color: $shades-blue-70;
             }
         }
-
         .my-inbox {
             padding: 20px;
             width: 100%;
         }
-
         .single-menu-item {
+            height: 54px !important;
             display: flex;
             align-items: center;
             gap: 22px;
-            padding: 10px 30px;
+            padding: 10px 0 10px 30px;
             cursor: pointer;
-            overflow: hidden;
         }
-
+    
         .single-menu-item:hover{
             background: $action-primary-focus;
         }
-// }
+    }

@@ -20,6 +20,7 @@ import {
 	HelpIcon
 } from './MenuIconFile';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
 interface MenuItem {
 	id: string;
@@ -27,7 +28,12 @@ interface MenuItem {
 	icon: string;
 }
 
-const Menu = () => {
+interface IMenuProps {
+	menuItem: (item: string) => void;
+}
+
+const Menu = (props: IMenuProps) => {
+	const [activeMenu, setActiveMenu] = useState<string>('');
 	const menuItems: MenuItem[] = [
 		{ id: 'calls', displayName: 'Calls', icon: CallsIcon },
 		{ id: 'messages', displayName: 'Messages', icon: MessagesIcon },
@@ -43,26 +49,33 @@ const Menu = () => {
 	];
 	return (
 		<>
-			<Flexbox alignItems="center" className={styles['logo-con']} gap={7}>
+			<Link to={'/'} className={styles['logo-con']} onClick={() => props.menuItem('/')}>
 				<img src={logo} alt="logo" />
 				<img src={logoName} alt="phone.com" />
-			</Flexbox>
-			<Flexbox className={styles['name-con']} gap={12} alignItems="center">
-				<img src={AvatarIcon} alt="avatar" />
-				<Flexbox direction="column">
-					<Typography type="body-Monst_14-500">Dheeraj Katarya</Typography>
-					<Typography type="body-Monst_13-400">Phone.com</Typography>
+			</Link>
+			<Flexbox direction="column" className={styles['menu-item-con']}>
+				<Flexbox className={styles['name-con']} gap={12} alignItems="center">
+					<img src={AvatarIcon} alt="avatar" />
+					<Flexbox direction="column">
+						<Typography type="body-Monst_14-500">Dheeraj Katarya</Typography>
+						<Typography type="body-Monst_13-400">Phone.com</Typography>
+					</Flexbox>
 				</Flexbox>
-			</Flexbox>
-			<Flexbox width="100%">
-				<Flexbox justifyContent="space-between" alignItems="center" className={styles['my-inbox']}>
-					<Typography type="body-NTR_16-400">MY INBOX</Typography>
-					<img src={DownArrow} alt="down arrow" />
+				<Flexbox width="100%">
+					<Flexbox justifyContent="space-between" alignItems="center" className={styles['my-inbox']}>
+						<Typography type="body-NTR_16-400">MY INBOX</Typography>
+						<img src={DownArrow} alt="down arrow" />
+					</Flexbox>
 				</Flexbox>
-			</Flexbox>
-			<Flexbox direction="column">
 				{menuItems.map((item: MenuItem) => (
-					<Link to={`/${item.id}`} className={styles['single-menu-item']}>
+					<Link
+						to={`/${item.displayName}`}
+						style={activeMenu === item.id ? { background: 'rgba(206, 239, 199, 0.5)' } : {}}
+						className={styles['single-menu-item']}
+						onClick={() => {
+							setActiveMenu(item.id);
+							props.menuItem(item.displayName);
+						}}>
 						<img src={item.icon} alt={item.id} />
 						<Typography type="body-Monst_14-400">{item.displayName}</Typography>
 					</Link>
