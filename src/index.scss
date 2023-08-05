@@ -1,5 +1,11 @@
 @import './styles/variables';
 
 body {
+    // height: 100vh;
+    margin: 0;
     color: $text-primary;
+
+    p {
+        margin: 0;
+    }
 }
