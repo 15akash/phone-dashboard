@@ -1,47 +1,43 @@
-import React, { useCallback, useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useMemo, useState } from 'react';
 import InputField from '../../../../../../components/InputField/InputField';
 import Flexbox from '../../../../../../foundations/Flexbox/Flexbox';
 import LocationIcon from '../../../../../../assets/homepage/location-icon-pink.svg';
 import Typography from '../../../../../../foundations/Typography/Typography';
 import styles from './BrandDetails.module.scss';
 import Label from '../../../../../../components/Label/Label';
-import FormsContext from '../../../../../../store/FormsContext';
+import FormsContext, { IBrandForm } from '../../../../../../store/FormsContext';
 
-export interface IBrandDetails {
-	id: string;
-	brandName: string;
-	entityType: string;
-	ein: Date;
-	einIssuingCountry: string;
-	vertical: number;
-	stockSymbol: number;
-	stockExchange: number;
+interface IBrandsDetailsProps {
+	brandsForm: (item: IBrandForm) => void;
 }
 
-interface IBrandDetailsProps {
-	isEditable: boolean;
-}
+const BrandDetails = React.memo((props: IBrandsDetailsProps) => {
+	const { state: formCtx } = useContext(FormsContext);
+	const [enteredBrandName, setEnteredBrandName] = useState<number>(formCtx.brandForm?.brandName);
+	const [enteredEntityType, setEnteredEntityType] = useState<string>(formCtx.brandForm?.entityType);
+	const [enteredEIN, setEnteredEIN] = useState<string>(formCtx.brandForm?.ein);
+	const [enteredEINIssuingCountry, setEnteredEINIssuingCountry] = useState<string>(formCtx.brandForm?.einIssuingCountry);
+	const [enteredVertical, setEnteredVertical] = useState<number>(formCtx.brandForm?.vertical);
+	const [enteredStockSymbol, setEnteredStockSymbol] = useState<number>(formCtx.brandForm?.stockSymbol);
+	const [enteredStockExchange, setEnteredStockExchange] = useState<number>(formCtx.brandForm?.stockExchange);
 
-const BrandDetails = React.memo((props: IBrandDetailsProps) => {
-	const { state: formCtx, dispatch: dispatchFormAction } = useContext(FormsContext);
-	const [enteredBrandName, setEnteredBrandName] = useState<number>(formCtx.brandForm.brandName);
-	const [enteredEntityType, setEnteredEntityType] = useState<string>(formCtx.brandForm.entityType);
-	const [enteredEIN, setEnteredEIN] = useState<Date>(new Date(formCtx.brandForm.ein));
-	const [enteredEINIssuingCountry, setEnteredEINIssuingCountry] = useState<string>(formCtx.brandForm.einIssuingCountry);
-	const [enteredVertical, setEnteredVertical] = useState<number>(formCtx.brandForm.vertical);
-	const [enteredStockSymbol, setEnteredStockSymbol] = useState<number>(formCtx.brandForm.stockSymbol);
-	const [enteredStockExchange, setEnteredStockExchange] = useState<number>(formCtx.brandForm.stockExchange);
-
-	const onSubmitHandler = useCallback(() => {
-		dispatchFormAction({
-			type: 'SAVE_COMPANY_DETAILS',
-			payload: { enteredBrandName, enteredEntityType, enteredEIN, enteredEINIssuingCountry, enteredVertical, enteredStockSymbol, enteredStockExchange }
-		});
-	}, [dispatchFormAction, enteredBrandName, enteredEIN, enteredEINIssuingCountry, enteredEntityType, enteredStockExchange, enteredStockSymbol, enteredVertical]);
+	const brandsFormToSave: IBrandForm = useMemo(() => {
+		return {
+			brandName: enteredBrandName,
+			entityType: enteredEntityType,
+			ein: enteredEIN,
+			einIssuingCountry: enteredEINIssuingCountry,
+			vertical: enteredVertical,
+			stockSymbol: enteredStockSymbol,
+			stockExchange: enteredStockExchange
+		};
+	}, [enteredBrandName, enteredEIN, enteredEINIssuingCountry, enteredEntityType, enteredStockExchange, enteredStockSymbol, enteredVertical]);
 
 	useEffect(() => {
-		if (formCtx.editCompanyForm === false) onSubmitHandler();
-	}, [formCtx.editCompanyForm, onSubmitHandler]);
+		if (formCtx.editCompanyForm === false) {
+			props.brandsForm(brandsFormToSave);
+		}
+	}, [brandsFormToSave, formCtx.editCompanyForm, props]);
 
 	return (
 		<Flexbox direction="column" gap={20}>
@@ -60,7 +56,7 @@ const BrandDetails = React.memo((props: IBrandDetailsProps) => {
 				</Wrapper>
 				<Wrapper>
 					<Label label="EIN" />
-					<InputField type="date" placeholder="" value={new Date(enteredEIN)} setEnteredValue={setEnteredEIN} disabled={!formCtx.editCompanyForm} />
+					<InputField type="text" placeholder="" value={enteredEIN} setEnteredValue={setEnteredEIN} disabled={!formCtx.editCompanyForm} />
 				</Wrapper>
 				<Wrapper>
 					<Label label="EIN Issuing Country" />

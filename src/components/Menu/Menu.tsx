@@ -1,3 +1,4 @@
+import React from 'react';
 import styles from './Menu.module.scss';
 import Flexbox from '../../foundations/Flexbox/Flexbox';
 
@@ -32,7 +33,7 @@ interface IMenuProps {
 	menuItem: (item: string) => void;
 }
 
-const Menu = (props: IMenuProps) => {
+const Menu = React.memo((props: IMenuProps) => {
 	const [activeMenu, setActiveMenu] = useState<string>('');
 	const menuItems: MenuItem[] = [
 		{ id: 'calls', displayName: 'Calls', icon: CallsIcon },
@@ -72,6 +73,7 @@ const Menu = (props: IMenuProps) => {
 						to={`/${item.displayName}`}
 						style={activeMenu === item.id ? { background: 'rgba(206, 239, 199, 0.5)' } : {}}
 						className={styles['single-menu-item']}
+						key={item.id}
 						onClick={() => {
 							setActiveMenu(item.id);
 							props.menuItem(item.displayName);
@@ -85,6 +87,6 @@ const Menu = (props: IMenuProps) => {
 			</Flexbox>
 		</>
 	);
-};
+});
 
 export default Menu;

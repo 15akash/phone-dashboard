@@ -1,14 +1,26 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import styles from './CompanyDetails.module.scss';
 import Flexbox from '../../../../foundations/Flexbox/Flexbox';
 import DetailsHeader from '../../../../components/DetailsHeader/DetailsHeader';
 import BrandDetails from './components/BrandDetails/BrandDetails';
 import OtherDetails from './components/OtherDetails/OtherDetails';
 import PersonalDetails from './components/PersonalDetails/PersonalDetails';
-import FormsContext from '../../../../store/FormsContext';
+import FormsContext, { IBrandForm, IOtherDetailsForm, IPersonalDetailsForm } from '../../../../store/FormsContext';
 
 const CompanyDetails = React.memo(() => {
 	const { state: formCtx, dispatch: dispatchFormAction } = useContext(FormsContext);
+
+	const [brandFormValues, setBrandFormValues] = useState<IBrandForm>();
+	const [personalFormValues, setpersonalFormValues] = useState<IPersonalDetailsForm>();
+	const [otherFormValues, setOtherFormValues] = useState<IOtherDetailsForm>();
+
+	useEffect(() => {
+		if (formCtx.editCompanyForm === false) {
+			let payload;
+			payload = { brandFormValues, personalFormValues, otherFormValues };
+			dispatchFormAction({ type: 'SAVE_COMPANY_DETAILS', payload: payload });
+		}
+	}, [brandFormValues, dispatchFormAction, formCtx.editCompanyForm, otherFormValues, personalFormValues]);
 
 	return (
 		<Flexbox gap={20} direction="column" className={styles['company-card-con']}>
@@ -21,9 +33,9 @@ const CompanyDetails = React.memo(() => {
 					}}
 				/>
 				<div className={styles['details-columns']}>
-					<BrandDetails isEditable={formCtx.editCompanyForm} />
-					<PersonalDetails />
-					<OtherDetails />
+					<BrandDetails brandsForm={(values: IBrandForm) => setBrandFormValues(values)} />
+					<PersonalDetails personalDetailsForm={(values: IPersonalDetailsForm) => setpersonalFormValues(values)} />
+					<OtherDetails otherDetailsForm={(values: IOtherDetailsForm) => setOtherFormValues(values)} />
 				</div>
 			</div>
 			<div>

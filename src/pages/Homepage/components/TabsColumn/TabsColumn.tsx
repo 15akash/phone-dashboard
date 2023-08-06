@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import styles from './TabsColumn.module.scss';
 import Flexbox from '../../../../foundations/Flexbox/Flexbox';
 import Typography from '../../../../foundations/Typography/Typography';
@@ -20,7 +20,7 @@ interface IStatusInformation {
 	statusInfo: string;
 }
 
-const TabsColumn = () => {
+const TabsColumn = React.memo(() => {
 	const brandCampaignSelection: IBrandCampaign[] = useMemo(
 		() => [
 			{ id: 'brands', displayName: 'Brands', icon: BrandsIcon },
@@ -45,7 +45,7 @@ const TabsColumn = () => {
 		<Flexbox direction="column" className={styles['brand-campaign-con']}>
 			<Flexbox gap={54}>
 				{brandCampaignSelection.map(item => (
-					<Flexbox gap={10} alignItems="flex-start" onClick={() => setTabSelection(item.id)}>
+					<Flexbox gap={10} alignItems="flex-start" onClick={() => setTabSelection(item.id)} key={item.id}>
 						<img src={item.icon} alt={item.displayName} />
 						<Typography type="body-1-heavy" className={tabSelection === item.id ? styles['active-tab'] : styles[`tab`]}>
 							{item.displayName}
@@ -73,7 +73,7 @@ const TabsColumn = () => {
 				<Flexbox width="95%" className={styles['divider']}></Flexbox>
 				<div className={styles['status-info-con']}>
 					{statusInformation.map(status => (
-						<Flexbox direction="column" cursor="pointer" gap={6} onClick={() => setStatusSelection(status.id)}>
+						<Flexbox direction="column" cursor="pointer" gap={6} key={status.id} onClick={() => setStatusSelection(status.id)}>
 							<Flexbox gap={4}>
 								<img src={OffersReceivedIcon} alt={status.id} />
 								<Typography type="h5" className={statusSelection === status.id ? styles['active-status'] : ''}>
@@ -87,6 +87,6 @@ const TabsColumn = () => {
 			</Flexbox>
 		</Flexbox>
 	);
-};
+});
 
 export default TabsColumn;

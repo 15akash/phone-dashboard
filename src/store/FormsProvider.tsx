@@ -3,9 +3,13 @@ import FormsContext, { IFormsAction, IFormsState, defaultFormsState } from './Fo
 
 const FormsProvider = React.memo((props: any) => {
 	const formsReducer = useCallback((state: IFormsState, action: IFormsAction) => {
-		console.log('action received', action);
 		if (action.type === 'SAVE_COMPANY_DETAILS') {
-			console.log('action in payload', action);
+			return {
+				...state,
+				brandForm: action.payload.brandFormValues,
+				personalDetailsForm: action.payload.personalFormValues,
+				otherDetailsForm: action.payload.otherFormValues
+			};
 		}
 
 		if (action.type === 'SAVE_CONTACT_DETAILS') {
