@@ -63,6 +63,16 @@ export const defaultBrandState: IBrandForm = {
 	stockExchange: 567235910286
 };
 
+export interface IContactDetails {
+	emailAddress: string;
+	phoneNumber: number;
+}
+
+export const defaultContactDetails: IContactDetails = {
+	emailAddress: 'arabban@phone.com',
+	phoneNumber: 9735776381
+};
+
 export interface IFormsState {
 	editCompanyForm: boolean;
 	editContactForm: boolean;
@@ -70,6 +80,7 @@ export interface IFormsState {
 	brandForm: IBrandForm;
 	personalDetailsForm: IPersonalDetailsForm;
 	otherDetailsForm: IOtherDetailsForm;
+	contactForm: IContactDetails;
 }
 
 export const defaultFormsState: IFormsState = {
@@ -78,7 +89,8 @@ export const defaultFormsState: IFormsState = {
 	editRegisteredCampaignsForm: false,
 	brandForm: defaultBrandState,
 	personalDetailsForm: defaultPersonalDetailState,
-	otherDetailsForm: defaultOtherDetailState
+	otherDetailsForm: defaultOtherDetailState,
+	contactForm: defaultContactDetails
 };
 
 export const deafultFormsContext: IFormsContext = {

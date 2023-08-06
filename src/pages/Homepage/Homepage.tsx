@@ -4,6 +4,7 @@ import Flexbox from '../../foundations/Flexbox/Flexbox';
 import Typography from '../../foundations/Typography/Typography';
 import TabsColumn from './components/TabsColumn/TabsColumn';
 import CompanyDetails from './components/CompanyDetails/CompanyDetails';
+import ContactDetails from './components/ContactDetails/ContactDetails';
 
 const Homepage = React.memo(() => {
 	return (

@@ -3,6 +3,7 @@ import FormsContext, { IFormsAction, IFormsState, defaultFormsState } from './Fo
 
 const FormsProvider = React.memo((props: any) => {
 	const formsReducer = useCallback((state: IFormsState, action: IFormsAction) => {
+		console.log('action values', action);
 		if (action.type === 'SAVE_COMPANY_DETAILS') {
 			return {
 				...state,
@@ -13,6 +14,10 @@ const FormsProvider = React.memo((props: any) => {
 		}
 
 		if (action.type === 'SAVE_CONTACT_DETAILS') {
+			return {
+				...state,
+				contactForm: action.payload
+			};
 		}
 
 		if (action.type === 'EDIT_COMPANY_DETAILS') {

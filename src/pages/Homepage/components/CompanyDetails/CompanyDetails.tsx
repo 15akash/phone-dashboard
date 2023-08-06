@@ -6,6 +6,7 @@ import BrandDetails from './components/BrandDetails/BrandDetails';
 import OtherDetails from './components/OtherDetails/OtherDetails';
 import PersonalDetails from './components/PersonalDetails/PersonalDetails';
 import FormsContext, { IBrandForm, IOtherDetailsForm, IPersonalDetailsForm } from '../../../../store/FormsContext';
+import ContactDetails from '../ContactDetails/ContactDetails';
 
 const CompanyDetails = React.memo(() => {
 	const { state: formCtx, dispatch: dispatchFormAction } = useContext(FormsContext);
@@ -44,7 +45,7 @@ const CompanyDetails = React.memo(() => {
 					value={formCtx.editContactForm}
 					saveValue={value => dispatchFormAction({ type: 'EDIT_CONTACT_DETAILS', payload: value })}
 				/>
-				<div className={styles['details-columns']}></div>
+				<ContactDetails />
 			</div>
 			<div>
 				<DetailsHeader
