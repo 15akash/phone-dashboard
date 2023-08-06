@@ -20,3 +20,25 @@
             }
         }
 }
+
+@media screen and (max-width: 1000px) {
+    .company-card-con {
+        .company-details-con {
+            .details-columns {
+                grid-template-columns: 1fr 1fr;
+                row-gap: 50px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 790px) {
+    .company-card-con {
+        .company-details-con {
+            .details-columns {
+                grid-template-columns: 1fr !important;
+            }
+        }
+    }
+}
+
