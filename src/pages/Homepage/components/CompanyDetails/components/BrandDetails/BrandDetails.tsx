@@ -1,10 +1,11 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useContext, useEffect, useState } from 'react';
 import InputField from '../../../../../../components/InputField/InputField';
 import Flexbox from '../../../../../../foundations/Flexbox/Flexbox';
 import LocationIcon from '../../../../../../assets/homepage/location-icon-pink.svg';
 import Typography from '../../../../../../foundations/Typography/Typography';
 import styles from './BrandDetails.module.scss';
 import Label from '../../../../../../components/Label/Label';
+import FormsContext from '../../../../../../store/FormsContext';
 
 export interface IBrandDetails {
 	id: string;
@@ -22,22 +23,25 @@ interface IBrandDetailsProps {
 }
 
 const BrandDetails = React.memo((props: IBrandDetailsProps) => {
-	const [enteredBrandName, setEnteredBrandName] = useState<number>(5672359102386);
-	const [enteredEntityType, setEnteredEntityType] = useState<string>('Phone.com MVP premium');
-	const [enteredEIN, setEnteredEIN] = useState<Date>(new Date('2023/02/28'));
-	const [enteredEINIssuingCountry, setEnteredEINIssuingCountry] = useState<string>('American Express (4152)');
-	const [enteredVertical, setEnteredVertical] = useState<number>(98621620);
-	const [enteredStockSymbol, setEnteredStockSymbol] = useState<number>(98621620);
-	const [enteredStockExchange, setEnteredStockExchange] = useState<number>(567235910286);
+	const { state: formCtx, dispatch: dispatchFormAction } = useContext(FormsContext);
+	const [enteredBrandName, setEnteredBrandName] = useState<number>(formCtx.brandForm.brandName);
+	const [enteredEntityType, setEnteredEntityType] = useState<string>(formCtx.brandForm.entityType);
+	const [enteredEIN, setEnteredEIN] = useState<Date>(new Date(formCtx.brandForm.ein));
+	const [enteredEINIssuingCountry, setEnteredEINIssuingCountry] = useState<string>(formCtx.brandForm.einIssuingCountry);
+	const [enteredVertical, setEnteredVertical] = useState<number>(formCtx.brandForm.vertical);
+	const [enteredStockSymbol, setEnteredStockSymbol] = useState<number>(formCtx.brandForm.stockSymbol);
+	const [enteredStockExchange, setEnteredStockExchange] = useState<number>(formCtx.brandForm.stockExchange);
 
-	const onSubmitHandler = useCallback((save: boolean) => {
-		//call the api here to save form
-		console.log('saving the form', save);
-	}, []);
+	const onSubmitHandler = useCallback(() => {
+		dispatchFormAction({
+			type: 'SAVE_COMPANY_DETAILS',
+			payload: { enteredBrandName, enteredEntityType, enteredEIN, enteredEINIssuingCountry, enteredVertical, enteredStockSymbol, enteredStockExchange }
+		});
+	}, [dispatchFormAction, enteredBrandName, enteredEIN, enteredEINIssuingCountry, enteredEntityType, enteredStockExchange, enteredStockSymbol, enteredVertical]);
 
 	useEffect(() => {
-		if (props.isEditable === false) onSubmitHandler(props.isEditable);
-	}, [onSubmitHandler, props.isEditable]);
+		if (formCtx.editCompanyForm === false) onSubmitHandler();
+	}, [formCtx.editCompanyForm, onSubmitHandler]);
 
 	return (
 		<Flexbox direction="column" gap={20}>
@@ -48,31 +52,31 @@ const BrandDetails = React.memo((props: IBrandDetailsProps) => {
 			<form className={styles['brand-details-form']}>
 				<Wrapper>
 					<Label label="Brand Name" />
-					<InputField type="number" value={enteredBrandName} setEnteredValue={setEnteredBrandName} disabled={!props.isEditable} />
+					<InputField type="number" value={enteredBrandName} setEnteredValue={setEnteredBrandName} disabled={!formCtx.editCompanyForm} />
 				</Wrapper>
 				<Wrapper>
 					<Label label="Entity Type" />
-					<InputField type="text" placeholder="" value={enteredEntityType} setEnteredValue={setEnteredEntityType} disabled={!props.isEditable} />
+					<InputField type="text" placeholder="" value={enteredEntityType} setEnteredValue={setEnteredEntityType} disabled={!formCtx.editCompanyForm} />
 				</Wrapper>
 				<Wrapper>
 					<Label label="EIN" />
-					<InputField type="date" placeholder="" value={new Date(enteredEIN)} setEnteredValue={setEnteredEIN} disabled={!props.isEditable} />
+					<InputField type="date" placeholder="" value={new Date(enteredEIN)} setEnteredValue={setEnteredEIN} disabled={!formCtx.editCompanyForm} />
 				</Wrapper>
 				<Wrapper>
 					<Label label="EIN Issuing Country" />
-					<InputField type="text" placeholder="" value={enteredEINIssuingCountry} setEnteredValue={setEnteredEINIssuingCountry} disabled={!props.isEditable} />
+					<InputField type="text" placeholder="" value={enteredEINIssuingCountry} setEnteredValue={setEnteredEINIssuingCountry} disabled={!formCtx.editCompanyForm} />
 				</Wrapper>
 				<Wrapper>
 					<Label label="Vertical" />
-					<InputField type="number" placeholder="" value={enteredVertical} setEnteredValue={setEnteredVertical} disabled={!props.isEditable} />
+					<InputField type="number" placeholder="" value={enteredVertical} setEnteredValue={setEnteredVertical} disabled={!formCtx.editCompanyForm} />
 				</Wrapper>
 				<Wrapper>
 					<Label label="Stock Symbol" />
-					<InputField type="number" placeholder="" value={enteredStockSymbol} setEnteredValue={setEnteredStockSymbol} disabled={!props.isEditable} />
+					<InputField type="number" placeholder="" value={enteredStockSymbol} setEnteredValue={setEnteredStockSymbol} disabled={!formCtx.editCompanyForm} />
 				</Wrapper>
 				<Wrapper>
 					<Label label="Stock Exchange" />
-					<InputField type="number" placeholder="" value={enteredStockExchange} setEnteredValue={setEnteredStockExchange} disabled={!props.isEditable} />
+					<InputField type="number" placeholder="" value={enteredStockExchange} setEnteredValue={setEnteredStockExchange} disabled={!formCtx.editCompanyForm} />
 				</Wrapper>
 			</form>
 		</Flexbox>
