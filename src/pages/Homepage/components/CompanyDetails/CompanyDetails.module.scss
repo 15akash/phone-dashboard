@@ -10,5 +10,13 @@
         .company-details-con {
             border: 1px solid $shades-gray-01;
             width: 100%;
+
+            .details-columns {
+                padding: 20px 30px;
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                column-gap: 100px;
+                row-gap: 10px;
+            }
         }
 }

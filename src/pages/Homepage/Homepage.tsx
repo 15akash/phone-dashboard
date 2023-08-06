@@ -1,10 +1,11 @@
+import React from 'react';
 import styles from './Homepage.module.scss';
 import Flexbox from '../../foundations/Flexbox/Flexbox';
 import Typography from '../../foundations/Typography/Typography';
 import TabsColumn from './components/TabsColumn/TabsColumn';
 import CompanyDetails from './components/CompanyDetails/CompanyDetails';
 
-const Homepage = () => {
+const Homepage = React.memo(() => {
 	return (
 		<Flexbox className={styles['homepage']} direction="column" gap={30}>
 			<Flexbox>
@@ -19,6 +20,6 @@ const Homepage = () => {
 			<CompanyDetails />
 		</Flexbox>
 	);
-};
+});
 
 export default Homepage;

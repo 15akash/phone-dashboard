@@ -1,0 +1,30 @@
+@import '../../styles/variables';
+
+.input-field-con {
+    color: $text-primary;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Montserrat, sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 26px; /* 162.5% */
+    letter-spacing: -0.1px;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid $secondary-main;
+}
+
+.disabled-input {
+    border: none;
+    outline: none;
+    background-color: $universal-snowflake;
+    color: $text-primary;
+    font-feature-settings: 'clig' off, 'liga' off;
+    font-family: Montserrat, sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 26px; /* 162.5% */
+    letter-spacing: -0.1px;
+    
+}

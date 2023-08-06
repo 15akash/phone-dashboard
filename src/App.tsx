@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import styles from './App.module.scss';
 import Homepage from './pages/Homepage/Homepage';
