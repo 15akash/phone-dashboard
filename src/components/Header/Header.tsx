@@ -14,7 +14,7 @@ const Header = () => {
 			<Flexbox gap={12} className={styles['icons-con']}>
 				<img className={styles['dialer-icon']} src={DialerIcon} alt="dialer-icon" />
 				<Flexbox className={styles['divider']}></Flexbox>
-				<img src={MoonIcon} alt="mode-icon" />
+				<img src={MoonIcon} className={styles['mode-icon']} alt="mode-icon" />
 			</Flexbox>
 		</header>
 	);

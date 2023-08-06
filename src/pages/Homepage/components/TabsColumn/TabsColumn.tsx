@@ -54,7 +54,7 @@ const TabsColumn = () => {
 				))}
 			</Flexbox>
 			<Flexbox className={styles['card-con']} gap={20} direction="column">
-				<Flexbox justifyContent="space-between" alignItems="center">
+				<Flexbox justifyContent="space-between" alignItems="center" className={styles['company-branding']}>
 					<Flexbox gap={8}>
 						<img src={MyDealsIcon} alt="" />
 						<Typography type="h5">Company Name</Typography>

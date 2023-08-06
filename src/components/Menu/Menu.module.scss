@@ -40,3 +40,28 @@
             background: $action-primary-focus;
         }
     }
+
+    @media screen and (max-width: 900px) {
+
+        .logo-con {
+            justify-content: center !important;
+        }
+
+        .my-inbox {
+            padding: 20px 0 !important;
+            text-align: center;
+        }
+
+        .menu-item-con {
+            justify-content: center !important;
+
+            .single-menu-item {
+                justify-content: center !important;
+                padding: 10px 0;
+            }
+        }
+
+        .mobile-resp {
+            display: none !important;
+        }
+    }

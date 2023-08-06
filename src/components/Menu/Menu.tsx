@@ -51,12 +51,12 @@ const Menu = (props: IMenuProps) => {
 		<>
 			<Link to={'/'} className={styles['logo-con']} onClick={() => props.menuItem('/')}>
 				<img src={logo} alt="logo" />
-				<img src={logoName} alt="phone.com" />
+				<img className={styles['mobile-resp']} src={logoName} alt="phone.com" />
 			</Link>
 			<Flexbox direction="column" className={styles['menu-item-con']}>
 				<Flexbox className={styles['name-con']} gap={12} alignItems="center">
 					<img src={AvatarIcon} alt="avatar" />
-					<Flexbox direction="column">
+					<Flexbox direction="column" className={styles['mobile-resp']}>
 						<Typography type="body-Monst_14-500">Dheeraj Katarya</Typography>
 						<Typography type="body-Monst_13-400">Phone.com</Typography>
 					</Flexbox>
@@ -64,7 +64,7 @@ const Menu = (props: IMenuProps) => {
 				<Flexbox width="100%">
 					<Flexbox justifyContent="space-between" alignItems="center" className={styles['my-inbox']}>
 						<Typography type="body-NTR_16-400">MY INBOX</Typography>
-						<img src={DownArrow} alt="down arrow" />
+						<img className={styles['mobile-resp']} src={DownArrow} alt="down arrow" />
 					</Flexbox>
 				</Flexbox>
 				{menuItems.map((item: MenuItem) => (
@@ -77,7 +77,9 @@ const Menu = (props: IMenuProps) => {
 							props.menuItem(item.displayName);
 						}}>
 						<img src={item.icon} alt={item.id} />
-						<Typography type="body-Monst_14-400">{item.displayName}</Typography>
+						<Typography className={styles['mobile-resp']} type="body-Monst_14-400">
+							{item.displayName}
+						</Typography>
 					</Link>
 				))}
 			</Flexbox>

@@ -49,3 +49,30 @@
         cursor: pointer;
     }
 }
+
+@media screen and (max-width: 1100px) and (min-width: 551px) {
+    .brand-campaign-con {
+        .card-con {
+
+            .status-info-con {
+                width: 100%;
+                row-gap: 20px;
+                grid-template-columns: repeat(2, 1fr) !important;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .card-con {
+
+        .company-branding {
+            flex-direction: column !important;
+            align-items: flex-start !important;
+        }
+        .status-info-con{
+            grid-template-columns: 1fr !important;
+            row-gap: 20px;
+        }
+    }
+}

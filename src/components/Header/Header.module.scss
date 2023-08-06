@@ -63,3 +63,13 @@ header {
     }
 
 }
+
+@media screen and (max-width: 500px) {
+
+    .divider {
+        display: none !important;
+    }
+    .mode-icon {
+        display: none!important;
+    }
+}
